@@ -9,11 +9,11 @@ export type TUserPath = {
   name?: string;
   path?: string;
   element?: ReactNode;
-  children?: TUserPath[];
+  children?: TUserPath[] | undefined;
 };
 
 export type TSidebarItems = {
   key: string;
-  label: { name?: string; to?: string };
+  label: { name?: string | undefined; to?: string };
   children?: TSidebarItems[];
 };

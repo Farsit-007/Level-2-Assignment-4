@@ -2,13 +2,18 @@ import { useState, useRef, useEffect } from "react";
 import { navRouteGenerator } from "../../utils/navItems";
 import { userRoutes } from "../../routes/user.route";
 import { useAppSelector } from "../../redux/features/hooks";
-import { useCurrentUser } from "../../redux/features/auth/authSlice";
+import { TUser, useCurrentToken } from "../../redux/features/auth/authSlice";
 import { Link } from "react-router-dom";
 import { FaArrowAltCircleRight } from "react-icons/fa";
+import { verifyToken } from "../../utils/verifyToken";
 
 export const Navbar = () => {
   const menuItems = navRouteGenerator(userRoutes);
-  const user = useAppSelector(useCurrentUser);
+  const token = useAppSelector(useCurrentToken);
+  let user;
+  if (token) {
+    user = verifyToken(token);
+  }
   const [dropDownState, setDropDownState] = useState(false);
   const dropDownMenuRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -32,15 +37,35 @@ export const Navbar = () => {
         <h2>Logo</h2>
       </div>
 
-      <ul className="hidden md:flex items-center gap-10">
+      <ul className="hidden md:flex items-center gap-8">
         {menuItems.map((item, index) => (
           <li key={index} className="group flex cursor-pointer flex-col">
             {item.label}
             <span className="mt-[2px] h-[3px] w-0 rounded-full bg-[#f7c788] transition-all duration-300 group-hover:w-full"></span>
           </li>
         ))}
-          {user && (
-            <Link to={`/${user?.role}/dashboard`} className="flex items-center gap-2">Dashboard <FaArrowAltCircleRight /></Link>
+        {user ? (
+          <Link
+            to={`/${(user as TUser)?.role}/profile`}
+            className="flex pb-1 items-center cursor-pointer gap-2"
+          >
+            Dashboard <FaArrowAltCircleRight />
+          </Link>
+        ) : (
+          <div className="flex items-center gap-5">
+            <Link
+              to={"/login"}
+              className="flex items-center cursor-pointer pl-3 lg:pl-0 pb-1 gap-2"
+            >
+              Login
+            </Link>
+            <Link
+              to={`/register`}
+              className="flex items-center cursor-pointer pl-3 lg:pl-0 pb-1 gap-2"
+            >
+              Register
+            </Link>
+          </div>
         )}
       </ul>
 
@@ -67,7 +92,7 @@ export const Navbar = () => {
         </button>
 
         {dropDownState && (
-          <ul className="z-60 gap-2 bg-[#fff] absolute right-0 top-11 flex w-[200px] flex-col rounded-lg text-base">
+          <ul className="z-60 gap-2  bg-[#fff] absolute right-0 top-11 flex w-[200px] flex-col rounded-lg text-base">
             {menuItems.map((item, index) => (
               <li
                 key={index}
@@ -79,9 +104,29 @@ export const Navbar = () => {
             ))}
           </ul>
         )}
-        {/* {user && (
-            <Link to={`/${user?.role}/dashboard`} className="flex items-center gap-2">Dashboard <FaArrowAltCircleRight /></Link>
-        )} */}
+        {user ? (
+          <Link
+            to={`/${(user as TUser)?.role}/profile`}
+            className="flex items-center cursor-pointer pl-3 lg:pl-0 pb-1 gap-2"
+          >
+            Dashboard <FaArrowAltCircleRight />
+          </Link>
+        ) : (
+          <div className="flex items-center gap-2 lg:gap-5">
+            <Link
+              to={"/login"}
+              className="flex items-center cursor-pointer pl-3 lg:pl-0 pb-1 gap-2"
+            >
+              Login
+            </Link>
+            <Link
+              to={`/register`}
+              className="flex items-center pl-3 cursor-pointer lg:pl-0 pb-1 gap-2"
+            >
+              Register
+            </Link>
+          </div>
+        )}
       </div>
     </nav>
   );

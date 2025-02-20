@@ -8,6 +8,7 @@ import { routeGenerator } from "../utils/routeGenerator";
 import { adminPaths } from "./admin.route";
 import { customerPaths } from "./customer.route";
 import ProtectedRoute from "../components/layout/ProtectedRoute";
+import VerifyPage from "../pages/VerifyPage";
 
 const router = createBrowserRouter([
   {
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
   {
     path: "/admin",
     element: (
-      <ProtectedRoute>
+      <ProtectedRoute role={"admin"}>
         <DashboardLayout />
       </ProtectedRoute>
     ),
@@ -27,11 +28,15 @@ const router = createBrowserRouter([
   {
     path: "/customer",
     element: (
-      <ProtectedRoute>
+      <ProtectedRoute role={"customer"}>
         <DashboardLayout />
       </ProtectedRoute>
     ),
     children: routeGenerator(customerPaths),
+  },
+  {
+    path: "/order/verify",
+    element: <VerifyPage />,
   },
   {
     path: "/register",

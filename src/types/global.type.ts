@@ -1,24 +1,29 @@
 import { BaseQueryApi } from "@reduxjs/toolkit/query";
 
+export type TErrorSource = {
+  path: string;
+  message: string;
+};
+
 export type TError = {
   data: {
-    message: string;
-    stack: string;
     success: boolean;
+    message: string;
+    errorSource: TErrorSource[];
+    stack?: string;
   };
   status: number;
 };
 
-export type TResponse<T>= {
+export type TResponse<T> = {
   data?: T;
   error?: TError;
-  success : boolean;
-  message : string
+  success: boolean;
+  message: string;
 };
-
 
 export type TResponseRedux<T> = TResponse<T> & BaseQueryApi;
 export type TQueryParams = {
-  name : string;
-  value : boolean | React.Key;
-}
+  name: string;
+  value: boolean | React.Key;
+};

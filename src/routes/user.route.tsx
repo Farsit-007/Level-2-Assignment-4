@@ -1,4 +1,7 @@
+import ProtectedRoute from "../components/layout/ProtectedRoute";
 import AboutUs from "../pages/AboutUs";
+import AllProduct from "../pages/AllProduct";
+import Checkout from "../pages/Checkout";
 import Home from "../pages/Home";
 import ProductDetails from "../pages/ProductDetails";
 
@@ -9,18 +12,25 @@ export const userRoutes = [
     element: <Home />,
   },
   {
-    name : "About Us",
+    name: "About Us",
     path: "about",
     element: <AboutUs />,
   },
   {
     path: "product-details/:productId",
-    element: <ProductDetails/>,
+    element: <ProductDetails />,
   },
   {
-    name : "All Products",
+    path: "checkout/:productId",
+    element: (
+      <ProtectedRoute role={"customer"}>
+        <Checkout />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    name: "All Products",
     path: "all-product",
-    element: <AboutUs />,
+    element: <AllProduct />,
   },
 ];
-

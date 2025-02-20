@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { useLoginMutation } from "../redux/features/auth/authApi";
 import { useAppDispatch } from "../redux/features/hooks";
 import { setUser, TUser } from "../redux/features/auth/authSlice";
 import { verifyToken } from "../utils/verifyToken";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const Login = () => {
@@ -12,11 +12,11 @@ const Login = () => {
     email: "",
     password: "",
   });
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const [login] = useLoginMutation();
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -24,20 +24,19 @@ const Login = () => {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     try {
       const res = await login(formData).unwrap();
-    const user = verifyToken(res.data.token) as TUser
-    dispatch(setUser({ user: user, token: res.data.token }));
-    if(res.data.token){
-      toast.success("Logged in Successfullty")
-      navigate(`/${user.role}/dashboard`)
-    }
+      const user = verifyToken(res.data.token) as TUser;
+      dispatch(setUser({ user: user, token: res.data.token }));
+      if (res.data.token) {
+        toast.success("Logged in Successfully");
+        navigate(`/`);
+      }
     } catch (err) {
-      toast.error("Invalid Credential")
+      console.error("Invalid Credential");
     }
-    
   };
 
   return (
@@ -93,12 +92,20 @@ const Login = () => {
               </label>
             </div>
           </div>
-          <button
-            type="submit"
-            className="relative z-50 mb-4 mt-8 inline-block overflow-hidden rounded-md uppercase border border-blue-400 px-5 py-2 shadow-lg before:absolute before:inset-0 before:-z-10 before:block before:translate-x-full before:rounded-s-full before:bg-blue-400 before:duration-300 after:absolute after:inset-0 after:-z-10 after:block after:-translate-x-full after:rounded-e-full after:bg-blue-400 after:duration-300 hover:text-white before:hover:translate-x-0 after:hover:translate-x-0"
-          >
-            Submit
-          </button>
+          <div className="flex items-center justify-between">
+            <button
+              type="submit"
+              className="relative z-50 mb-4 mt-8 inline-block overflow-hidden rounded-md uppercase border border-blue-400 px-5 py-2 shadow-lg before:absolute before:inset-0 before:-z-10 before:block before:translate-x-full before:rounded-s-full before:bg-blue-400 before:duration-300 after:absolute after:inset-0 after:-z-10 after:block after:-translate-x-full after:rounded-e-full after:bg-blue-400 after:duration-300 hover:text-white before:hover:translate-x-0 after:hover:translate-x-0"
+            >
+              Submit
+            </button>
+            <Link to={"/register"} className="text-sm">
+              <small>
+                Don't have an account?{" "}
+                <span className="underline font-medium">Register</span>
+              </small>
+            </Link>
+          </div>
         </form>
       </div>
     </div>
