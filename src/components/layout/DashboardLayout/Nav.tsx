@@ -2,32 +2,40 @@ import { useEffect, useRef, useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { logout, useCurrentUser } from "../../../redux/features/auth/authSlice";
 import { useAppDispatch, useAppSelector } from "../../../redux/features/hooks";
+import { useGetSingleUserQuery } from "../../../redux/features/users/user.api";
 
 interface Props {
   onToggleSidebar: () => void;
 }
 
-const Nav: React.FC<Props>  = ({ onToggleSidebar  } ) => {
-  const user = useAppSelector(useCurrentUser)
+const Nav: React.FC<Props> = ({ onToggleSidebar }) => {
+  const user = useAppSelector(useCurrentUser);
+  const { data: userInfo, isLoading } = useGetSingleUserQuery(user?.userEmail);
   const [open, setOpen] = useState(false);
   const dropDownRef = useRef<HTMLDivElement>(null);
   const items = ["Logout"];
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
   useEffect(() => {
-    const close = (e : MouseEvent) => {
-      if (dropDownRef.current && !dropDownRef.current.contains(e.target as Node))
+    const close = (e: MouseEvent) => {
+      if (
+        dropDownRef.current &&
+        !dropDownRef.current.contains(e.target as Node)
+      )
         setOpen(false);
     };
     document.addEventListener("mousedown", close);
     return () => document.removeEventListener("mousedown", close);
   }, []);
-  const handleLogout = ()=>{
-    dispatch(logout())
+  const handleLogout = () => {
+    dispatch(logout());
+  };
+  if (isLoading) {
+    return <div>Loading..</div>;
   }
 
   return (
     <div className="bg-white h-[65px] px-3 lg:pr-10 fixed top-0 left-0 w-full flex items-center  z-10">
-        <div className="flex items-center justify-center">Logo</div>
+      <div className="flex items-center justify-center">Logo</div>
       <div
         className={`flex-1 ml-20 md:ml-60 flex justify-between items-center`}
       >
@@ -42,7 +50,7 @@ const Nav: React.FC<Props>  = ({ onToggleSidebar  } ) => {
 
         <div className="flex items-center gap-2">
           <div>
-            <h4>{user!.name}</h4>
+            <h4>{userInfo?.name}</h4>
           </div>
           <div ref={dropDownRef} className="relative mx-auto  w-fit ">
             <button
@@ -53,7 +61,7 @@ const Nav: React.FC<Props>  = ({ onToggleSidebar  } ) => {
                 width={500}
                 height={500}
                 className="size-10 border-2 border-amber-300 rounded-full bg-slate-500 object-cover"
-                src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=2080&auto=format&fit=crop"
+                src={userInfo?.image}
                 alt="avatar navigate ui"
               />
             </button>

@@ -14,6 +14,7 @@ export const Navbar = () => {
   if (token) {
     user = verifyToken(token);
   }
+
   const [dropDownState, setDropDownState] = useState(false);
   const dropDownMenuRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
