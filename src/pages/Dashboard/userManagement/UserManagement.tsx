@@ -1,3 +1,4 @@
+import toast from "react-hot-toast";
 import {
   useGetUsersQuery,
   useUpdateUsersMutation,
@@ -13,9 +14,14 @@ const UserManagement = () => {
         id: userId,
         data: !currentStatus,
       };
-      console.log(update);
       const res = await updateUser(update).unwrap();
-      console.log(res);
+      if (res?.data?.isBlock === true) {
+        toast.success("User Blocked Successfully");
+      } else if (res?.data?.isBlock === false) {
+        toast.success("User Unblocked Successfully");
+      } else {
+        toast.error("Something went wrong");
+      }
       refetch();
     } catch (error) {
       console.error("Error updating user status:", error);

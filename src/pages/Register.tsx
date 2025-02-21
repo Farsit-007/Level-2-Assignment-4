@@ -7,7 +7,7 @@ import { TError } from "../types/global.type";
 import { uploadFile } from "../utils/ImageUpload";
 
 const Register = () => {
-  const [register] = useRegisterMutation();
+  const [register,{isLoading}] = useRegisterMutation();
   const [formData, setFormData] = useState<{
     name: string;
     email: string;
@@ -219,10 +219,15 @@ const Register = () => {
           </div>
           <div className="flex items-center justify-between">
             <button
+              disabled={isLoading}
               type="submit"
               className="flex mt-5 font-medium bg-black text-white transition-all duration-300 p-2 px-6 hover:bg-[#f7c788] hover:text-black rounded-md items-center cursor-pointer gap-2"
             >
-              Submit
+              {isLoading ? (
+                <div className="w-7 h-7 animate-[spin_2s_linear_infinite] rounded-full border-8 border-dotted border-sky-600"></div>
+              ) : (
+                "Register"
+              )}
             </button>
             <Link to={"/login"} className="text-sm">
               <small>

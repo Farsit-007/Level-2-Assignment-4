@@ -7,10 +7,11 @@ import { useCurrentUser } from "../redux/features/auth/authSlice";
 import { useCreateOrdersMutation } from "../redux/features/orders/order.api";
 import { TError } from "../types/global.type";
 import toast from "react-hot-toast";
-
+import pay from "../assets/shurjoPay.png";
 const Checkout = () => {
   const { productId } = useParams();
-  const [createOrder, { isSuccess, data }] = useCreateOrdersMutation();
+  const [createOrder, { isSuccess, data, isLoading: loading }] =
+    useCreateOrdersMutation();
   const user = useAppSelector(useCurrentUser);
   const {
     data: product,
@@ -111,13 +112,15 @@ const Checkout = () => {
                 </div>
               </div>
             </div>
-            {/* Payment Method */}
             <div className="bg-white p-2 md:px-5 md:h-[220px] rounded-xl">
               <h1 className="text-[#3D6887] text-[24px] font-semibold">
                 Payment Method
               </h1>
               <div className="py-5 space-y-4">
                 <div className="flex items-center gap-5 bg-slate-200 rounded-md p-2">
+                  <figure className="w-24 h-5">
+                    <img src={pay} alt="ShurjoPay" className="w-full h-full" />
+                  </figure>
                   <label className="flex items-center gap-5">
                     <h1 className="text-sm font-medium">ShurjoPay</h1>
                   </label>
@@ -126,7 +129,6 @@ const Checkout = () => {
             </div>
           </div>
 
-          {/* Order Summary */}
           <div className="bg-white lg:w-[50%] p-1 md:p-5 rounded-xl">
             <h1 className="text-[#3D6887] p-2 mb-5 text-[24px] font-semibold">
               Order Summary
@@ -177,20 +179,23 @@ const Checkout = () => {
                 </div>
               </div>
               <hr />
-              {/* Total Price */}
               <div className="flex justify-between px-1 items-center">
                 <h1 className="text-2xl font-semibold">Total</h1>
                 <h1 className="text-[16px] flex items-center gap-1 font-semibold">
                   <FaDollarSign /> {totalPrice}
                 </h1>
               </div>
-              {/* Checkout Button */}
               <div className="pb-4">
                 <button
+                  disabled={loading}
                   type="submit"
                   className="flex mt-5 w-full justify-center font-medium bg-black text-white transition-all duration-300 p-2 px-6 hover:bg-[#f7c788] hover:text-black rounded-md items-center cursor-pointer gap-2"
                 >
-                  Check Out
+                  {loading ? (
+                    <div className="w-7 h-7 animate-[spin_2s_linear_infinite] rounded-full border-8 border-dotted border-sky-600"></div>
+                  ) : (
+                    "Place Order"
+                  )}
                 </button>
               </div>
             </div>

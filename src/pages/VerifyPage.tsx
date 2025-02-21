@@ -5,6 +5,7 @@ import { useCurrentToken } from "../redux/features/auth/authSlice";
 import { verifyToken } from "../utils/verifyToken";
 import { TUser } from "../types/user.type";
 import { JwtPayload } from "jwt-decode";
+import toast from "react-hot-toast";
 
 const VerifyPage = () => {
   const navigate = useNavigate();
@@ -18,6 +19,9 @@ const VerifyPage = () => {
     refetchOnMountOrArgChange: true,
   });
   const orderData = data?.data?.[0];
+  if(orderData){
+    toast.success("Order Placed Successfully");
+  }
   if (isLoading) {
     return (
       <div className="flex h-screen items-center justify-center">

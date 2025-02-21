@@ -15,10 +15,10 @@ const DashboardLayout = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen">
-      <Nav  onToggleSidebar={toggleSidebar} />
+    <div className="flex flex-col h-screen font-websiteFont">
+      <Nav onToggleSidebar={toggleSidebar} />
       <div className="flex flex-1 mt-[65px] relative">
-        <Sidebar isActive={isSidebarOpen}  />
+        <Sidebar isActive={isSidebarOpen} />
 
         {isSidebarOpen && (
           <div

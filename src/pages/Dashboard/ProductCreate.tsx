@@ -19,7 +19,7 @@ const ProductCreate = () => {
   if (token) {
     user = verifyToken(token);
   }
-  const [createProduct] = useCreateProductMutation();
+  const [createProduct, { isLoading }] = useCreateProductMutation();
   const [formData, setFormData] = useState<TProduct>({
     name: "",
     brand: "",
@@ -89,7 +89,6 @@ const ProductCreate = () => {
         image: imageUrl,
       };
       const res = await createProduct(productData).unwrap();
-      console.log(res);
       if (res?.success) {
         toast.success(res?.message);
         navigate(`/${(user as TUser)?.role}/manage-product`);
@@ -118,6 +117,7 @@ const ProductCreate = () => {
               id="name"
               name="name"
               type="text"
+              placeholder="Product name"
               value={formData.name}
               onChange={handleInputChange}
               required
@@ -132,6 +132,7 @@ const ProductCreate = () => {
               id="brand"
               name="brand"
               type="text"
+              placeholder="Product brand name"
               value={formData.brand}
               onChange={handleInputChange}
               required
@@ -148,6 +149,7 @@ const ProductCreate = () => {
               className="flex h-10 w-full rounded-md border px-3 py-2 text-sm"
               id="price"
               name="price"
+              placeholder="Product price"
               type="number"
               value={formData.price}
               onChange={handleInputChange}
@@ -191,6 +193,7 @@ const ProductCreate = () => {
               className="flex h-10 w-full rounded-md border px-3 py-2 text-sm"
               id="quantity"
               name="quantity"
+              placeholder="Product quantity"
               type="number"
               value={formData.quantity}
               onChange={handleInputChange}
@@ -232,6 +235,7 @@ const ProductCreate = () => {
             className="flex w-full rounded-md border px-3 py-2 text-sm"
             id="description"
             name="description"
+            placeholder="Product description more then 50 word...."
             rows={5}
             value={formData.description}
             onChange={handleInputChange}
@@ -288,8 +292,12 @@ const ProductCreate = () => {
           </div>
         </div>
 
-        <button className="flex mt-5 font-medium bg-black text-white transition-all duration-300 p-2 px-6 hover:bg-[#f7c788] hover:text-black rounded-md items-center cursor-pointer gap-2">
-          Create Product
+        <button disabled={isLoading} className="flex mt-5 font-medium bg-black text-white transition-all duration-300 p-2 px-6 hover:bg-[#f7c788] hover:text-black rounded-md items-center cursor-pointer gap-2">
+          {isLoading ? (
+            <div className="w-7 h-7 animate-[spin_2s_linear_infinite] rounded-full border-8 border-dotted border-sky-600"></div>
+          ) : (
+            "Create Product"
+          )}
         </button>
       </form>
     </div>

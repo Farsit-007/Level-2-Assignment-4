@@ -14,7 +14,7 @@ const Login = () => {
   });
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const [login] = useLoginMutation();
+  const [login, { isLoading }] = useLoginMutation();
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -35,7 +35,7 @@ const Login = () => {
         navigate(`/`);
       }
     } catch (err) {
-      console.error("Invalid Credential");
+      toast.error("Invalid Credential");
     }
   };
 
@@ -101,10 +101,15 @@ const Login = () => {
           </div>
           <div className="flex items-center justify-between">
             <button
+              disabled={isLoading}
               type="submit"
               className="flex mt-5 font-medium bg-black text-white transition-all duration-300 p-2 px-6 hover:bg-[#f7c788] hover:text-black rounded-md items-center cursor-pointer gap-2"
             >
-              Submit
+              {isLoading ? (
+                <div className="w-7 h-7 animate-[spin_2s_linear_infinite] rounded-full border-8 border-dotted border-sky-600"></div>
+              ) : (
+                "Sign In"
+              )}
             </button>
             <Link to={"/register"} className="text-sm">
               <small>
