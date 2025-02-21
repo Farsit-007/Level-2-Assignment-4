@@ -87,7 +87,7 @@ export const Carousel = () => {
               className="w-full h-full object-cover"
               alt={`Slide - ${idx + 1}`}
             />
-            <div className="absolute top-1/3 left-5  md:left-16 text-white bg-black/50 p-4 rounded-lg">
+            <div className="absolute top-1/3 left-8  md:left-16 text-white bg-black/50 p-4 rounded-lg">
               <h2 className="text-lg md:text-2xl py-4 font-bold">
                 {slide.text}
               </h2>

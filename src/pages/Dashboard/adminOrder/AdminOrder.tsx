@@ -1,8 +1,14 @@
 import { useGetAllOrdersQuery } from "../../../redux/features/admin/allorders/allorder.api";
 
 const AdminOrder = () => {
-  const { data: allorders } = useGetAllOrdersQuery(undefined);
-
+  const { data: allorders, isLoading } = useGetAllOrdersQuery(undefined);
+  if (isLoading) {
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <div className="w-10 h-10 animate-[spin_2s_linear_infinite] rounded-full border-8 border-dotted border-sky-600"></div>
+      </div>
+    );
+  }
   return (
     <div>
       {" "}

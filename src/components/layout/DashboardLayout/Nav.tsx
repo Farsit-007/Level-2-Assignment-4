@@ -3,7 +3,8 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { logout, useCurrentUser } from "../../../redux/features/auth/authSlice";
 import { useAppDispatch, useAppSelector } from "../../../redux/features/hooks";
 import { useGetSingleUserQuery } from "../../../redux/features/users/user.api";
-
+import logo from "../../../assets/logo.png";
+import { Link } from "react-router-dom";
 interface Props {
   onToggleSidebar: () => void;
 }
@@ -30,14 +31,28 @@ const Nav: React.FC<Props> = ({ onToggleSidebar }) => {
     dispatch(logout());
   };
   if (isLoading) {
-    return <div>Loading..</div>;
+    return (
+      <div className="flex items-center justify-center">
+        <div className="w-8 h-8 animate-[spin_2s_linear_infinite] rounded-full border-8 border-dotted border-sky-600"></div>
+      </div>
+    );
   }
 
   return (
     <div className="bg-white h-[65px] px-3 lg:pr-10 fixed top-0 left-0 w-full flex items-center  z-10">
-      <div className="flex items-center justify-center">Logo</div>
+      <div className="flex items-center justify-center ">
+        {" "}
+        <Link
+          to={"/"}
+          className="scale-100 bg-black cursor-pointer  rounded-xl px-3 py-2 text-xl font-semibold  transition-all duration-200 hover:scale-110"
+        >
+          <figure className="w-16 md:w-52 h-8">
+            <img src={logo} alt="" className="w-full h-full" />
+          </figure>
+        </Link>
+      </div>
       <div
-        className={`flex-1 ml-20 md:ml-60 flex justify-between items-center`}
+        className={`flex-1 ml-3 md:ml-12  flex justify-between items-center`}
       >
         <div className="flex items-center gap-5 ">
           <button
@@ -50,7 +65,9 @@ const Nav: React.FC<Props> = ({ onToggleSidebar }) => {
 
         <div className="flex items-center gap-2">
           <div>
-            <h4>{userInfo?.name}</h4>
+            <h4 className="font-medium  text-sm md:text-lg">
+              {userInfo?.name}
+            </h4>
           </div>
           <div ref={dropDownRef} className="relative mx-auto  w-fit ">
             <button

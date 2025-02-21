@@ -10,7 +10,11 @@ const ProductDetails = () => {
   } = useGetSIngleProductQuery(productId);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <div className="w-10 h-10 animate-[spin_2s_linear_infinite] rounded-full border-8 border-dotted border-sky-600"></div>
+      </div>
+    );
   }
 
   if (error) {
@@ -19,9 +23,9 @@ const ProductDetails = () => {
 
   return (
     <div className="my-5">
-      <div className="flex max-w-6xl mx-auto bg-base-100">
+      <div className="flex flex-col md:flex-row max-w-6xl mx-auto bg-base-100">
         <div className="flex justify-center items-center min-h-[500px] rounded-xl bg-[#f7c788] md:w-[45%]">
-          <figure className="w-[80%] mx-auto h-[80%] overflow-hidden">
+          <figure className="w-[90%] md:w-[80%] mx-auto h-[90%] md:h-[80%] overflow-hidden">
             <img
               src={product?.image as string}
               alt={product?.name}

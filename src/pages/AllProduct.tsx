@@ -18,7 +18,7 @@ const AllProduct = () => {
     setParams({ searchTerm });
   }, [searchTerm]);
 
-  const { data } = useGetAllProductQuery(params);
+  const { data, isLoading } = useGetAllProductQuery(params);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
@@ -27,6 +27,13 @@ const AllProduct = () => {
   const applyFilters = (filters: TFilters) => {
     setParams({ ...filters, searchTerm });
   };
+  if (isLoading) {
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <div className="w-10 h-10 animate-[spin_2s_linear_infinite] rounded-full border-8 border-dotted border-sky-600"></div>
+      </div>
+    );
+  }
 
   return (
     <div>

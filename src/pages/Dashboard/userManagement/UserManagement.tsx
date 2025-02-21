@@ -4,7 +4,7 @@ import {
 } from "../../../redux/features/admin/userManagement/userManagement.api";
 
 const UserManagement = () => {
-  const { data: users, refetch } = useGetUsersQuery(undefined);
+  const { data: users, refetch, isLoading } = useGetUsersQuery(undefined);
   const [updateUser] = useUpdateUsersMutation();
 
   const handleBlockToggle = async (userId: string, currentStatus: boolean) => {
@@ -21,6 +21,13 @@ const UserManagement = () => {
       console.error("Error updating user status:", error);
     }
   };
+  if (isLoading) {
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <div className="w-10 h-10 animate-[spin_2s_linear_infinite] rounded-full border-8 border-dotted border-sky-600"></div>
+      </div>
+    );
+  }
 
   return (
     <div>

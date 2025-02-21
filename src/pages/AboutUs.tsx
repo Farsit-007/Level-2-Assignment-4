@@ -11,22 +11,22 @@ const AboutUs = () => {
         }}
       >
         <h3 className="text-left font-bold text-2xl sm:text-5xl md:text-6xl">
-          Motor Hub - The Heartbeat of <br />
+          SpeedGear Hub - The Heartbeat of <br />
           Two-Wheelers in Bangladesh
         </h3>
       </div>
 
       <div className="grid lg:grid-cols-2 gap-10 mt-12 px-4 sm:px-8 lg:px-16">
         <div className="flex flex-col justify-center items-start">
-          <h1 className="text-3xl font-bold mb-6">About Motor Hub</h1>
+          <h1 className="text-3xl font-bold mb-6">About SpeedGear Hub</h1>
           <p className="text-lg leading-relaxed text-gray-700">
-            At Motor Hub, we are more than just a motorcycle manufacturer; we
-            are a symbol of Bangladesh's rich heritage of innovation and
+            At SpeedGear Hub, we are more than just a motorcycle manufacturer;
+            we are a symbol of Bangladesh's rich heritage of innovation and
             engineering excellence. Our bikes are designed not just for the
             road, but for adventure. From high-performance sports bikes to
             efficient commuter vehicles, we cater to every rider's needs. With
             cutting-edge technology, stylish designs, and sustainability at the
-            core of everything we do, Motor Hub leads the way in providing a
+            core of everything we do, SpeedGear Hub leads the way in providing a
             seamless and exhilarating riding experience.
           </p>
           <p className="text-lg leading-relaxed mt-6 text-gray-700">
@@ -41,7 +41,7 @@ const AboutUs = () => {
         <div className="flex justify-center items-center">
           <img
             src="./a1.jpg"
-            alt="Motor Hub Bikes"
+            alt="SpeedGear Hub Bikes"
             className="w-full max-w-md rounded-lg shadow-xl"
           />
         </div>
@@ -67,20 +67,22 @@ const AboutUs = () => {
           </p>
           <p className="text-lg leading-relaxed mt-6 text-gray-700">
             We strive to lead the way in creating sustainable, cutting-edge
-            bikes that contribute to a cleaner, greener planet. At Motor Hub,
-            our goal is not just to manufacture vehicles but to build lifelong
-            relationships with our riders. Our innovation, commitment, and drive
-            fuel our journey as we transform the way people experience
+            bikes that contribute to a cleaner, greener planet. At SpeedGear
+            Cycles, our goal is not just to manufacture vehicles but to build
+            lifelong relationships with our riders. Our innovation, commitment,
+            and drive fuel our journey as we transform the way people experience
             two-wheelers in Bangladesh.
           </p>
         </div>
       </div>
 
       <div className="my-12 bg-gradient-to-r from-[#f7c788] via-gray-600 to-black py-16 text-white text-center">
-        <h2 className="text-4xl font-bold">Join the Motor Hub Family Today!</h2>
+        <h2 className="text-4xl font-bold">
+          Join the SpeedGear Hub Family Today!
+        </h2>
         <p className="text-xl mt-4">
-          Discover your perfect ride with Motor Hub. Ride with confidence, ride
-          with us.
+          Discover your perfect ride with SpeedGear Hub. Ride with confidence,
+          ride with us.
         </p>
         <button
           onClick={() => navigate("/all-product")}

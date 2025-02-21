@@ -14,17 +14,23 @@ const VerifyPage = () => {
     user = verifyToken(token);
   }
   const [searchQuery] = useSearchParams();
-  const { data } = useVerifyOrderQuery(searchQuery.get("order_id"), {
+  const { data, isLoading } = useVerifyOrderQuery(searchQuery.get("order_id"), {
     refetchOnMountOrArgChange: true,
   });
-  console.log(data);
   const orderData = data?.data?.[0];
+  if (isLoading) {
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <div className="w-10 h-10 animate-[spin_2s_linear_infinite] rounded-full border-8 border-dotted border-sky-600"></div>
+      </div>
+    );
+  }
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
       <div className="bg-white shadow-xl rounded-lg p-6 max-w-3xl w-full border border-gray-200">
         <div className="flex justify-between items-center border-b pb-4 mb-4">
           <div>
-            <h1 className="text-2xl font-bold text-gray-800">Motor Hub</h1>
+            <h1 className="text-2xl font-bold text-gray-800">SpeedGear Hub</h1>
             <p className="text-sm text-gray-600">Trusted Vehicle Solutions</p>
           </div>
           <div className="text-right">
@@ -133,7 +139,6 @@ const VerifyPage = () => {
               navigate(`/${(user as TUser)?.role}/order-management`)
             }
             className="flex mt-5 font-medium bg-black text-white transition-all duration-300 p-2 px-6 hover:bg-[#f7c788] hover:text-black rounded-md items-center cursor-pointer gap-2"
-            
           >
             View Order History
           </button>

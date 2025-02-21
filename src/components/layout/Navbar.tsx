@@ -6,7 +6,7 @@ import { TUser, useCurrentToken } from "../../redux/features/auth/authSlice";
 import { Link } from "react-router-dom";
 import { FaArrowAltCircleRight } from "react-icons/fa";
 import { verifyToken } from "../../utils/verifyToken";
-
+import logo from "../../assets/logo.png";
 export const Navbar = () => {
   const menuItems = navRouteGenerator(userRoutes);
   const token = useAppSelector(useCurrentToken);
@@ -34,9 +34,14 @@ export const Navbar = () => {
 
   return (
     <nav className="flex items-center text-white justify-between max-w-[1380px] mx-auto px-4 py-2  ">
-      <div className="scale-100 cursor-pointer rounded-2xl px-3 py-2 text-xl font-semibold  transition-all duration-200 hover:scale-110">
-        <h2>Logo</h2>
-      </div>
+      <Link
+        to={"/"}
+        className="scale-100 cursor-pointer rounded-2xl px-3 py-2 text-xl font-semibold  transition-all duration-200 hover:scale-110"
+      >
+        <figure className="w-20 md:w-36 h-12">
+          <img src={logo} alt="" className="w-full h-full" />
+        </figure>
+      </Link>
 
       <ul className="hidden md:flex font-medium items-center gap-8">
         {menuItems.map((item, index) => (
@@ -73,7 +78,7 @@ export const Navbar = () => {
       <div ref={dropDownMenuRef} className="relative flex md:hidden">
         <button
           onClick={() => setDropDownState(!dropDownState)}
-          className="cursor-pointer"
+          className="cursor-pointer mr-5"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -93,7 +98,7 @@ export const Navbar = () => {
         </button>
 
         {dropDownState && (
-          <ul className="z-60 gap-2  bg-[#fff] absolute right-0 top-11 flex w-[200px] flex-col rounded-lg text-base">
+          <ul className="z-60 gap-2  bg-black  absolute right-0 top-11 flex w-[200px] flex-col rounded-lg ">
             {menuItems.map((item, index) => (
               <li
                 key={index}

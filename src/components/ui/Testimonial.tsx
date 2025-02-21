@@ -6,21 +6,21 @@ const Testimonial = () => {
       name: "John Doe",
       designation: "Biker Enthusiast",
       testimonialDescription:
-        "The Motor Hub's bike collection is absolutely top-notch! The quality, comfort, and speed are beyond expectations. I love how the bikes are engineered for smooth handling, whether it's for a weekend ride or an adventure. It's the perfect balance of style and performance.",
+        "The SpeedGear Hub's bike collection is absolutely top-notch! The quality, comfort, and speed are beyond expectations. I love how the bikes are engineered for smooth handling, whether it's for a weekend ride or an adventure. It's the perfect balance of style and performance.",
       keyWord: "bike",
     },
     {
       name: "Jane Doe",
       designation: "Motorcyclist",
       testimonialDescription:
-        "I've been using Motor Hub for my bike needs, and I couldn't be happier. The design is sleek, and the engine performance is outstanding. It's not only powerful but also incredibly fuel-efficient. Highly recommend it to anyone looking for a great riding experience!",
+        "I've been using SpeedGear Hub for my bike needs, and I couldn't be happier. The design is sleek, and the engine performance is outstanding. It's not only powerful but also incredibly fuel-efficient. Highly recommend it to anyone looking for a great riding experience!",
       keyWord: "motorcycle",
     },
     {
       name: "Shiyam Sarker",
       designation: "Rider",
       testimonialDescription:
-        "Motor Hub's bikes have taken my riding experience to the next level. The build quality is unmatched, and the bike's performance is exceptional on both city roads and highways. The comfort level on long rides is a game-changer.",
+        "SpeedGear Hub's bikes have taken my riding experience to the next level. The build quality is unmatched, and the bike's performance is exceptional on both city roads and highways. The comfort level on long rides is a game-changer.",
       keyWord: "rider",
     },
   ];

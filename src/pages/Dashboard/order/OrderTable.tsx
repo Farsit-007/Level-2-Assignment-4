@@ -4,10 +4,14 @@ import { useGetOrdersQuery } from "../../../redux/features/orders/order.api";
 
 const OrderTable = () => {
   const user = useAppSelector(useCurrentUser);
-  console.log(user?.userEmail);
-  const { data: orders } = useGetOrdersQuery(user?.userEmail);
-  console.log(orders);
-
+  const { data: orders, isLoading } = useGetOrdersQuery(user?.userEmail);
+  if (isLoading) {
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <div className="w-10 h-10 animate-[spin_2s_linear_infinite] rounded-full border-8 border-dotted border-sky-600"></div>
+      </div>
+    );
+  }
   return (
     <div>
       {" "}

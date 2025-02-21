@@ -6,7 +6,11 @@ const FeaturesProduct = () => {
   const { data, isLoading, error } = useGetFeaturedProductQuery(undefined);
 
   if (isLoading) {
-    return <div>Loading..</div>;
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <div className="w-10 h-10 animate-[spin_2s_linear_infinite] rounded-full border-8 border-dotted border-sky-600"></div>
+      </div>
+    );
   }
   if (error) {
     return <div>Error..</div>;
@@ -15,10 +19,11 @@ const FeaturesProduct = () => {
   return (
     <div className="my-20">
       <div className="flex items-center px-4 justify-between">
-        <div>
-          <h2 className="font-semibold text-xl md:text-4xl">
+        <div className="">
+          <h2 className="font-semibold  text-xl md:text-4xl">
             New Featured Bikes
           </h2>
+          <hr className="h-1 bg-[#f7c788] rounded-b-full border-none" />
         </div>
         <div>
           <Link

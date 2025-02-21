@@ -75,7 +75,7 @@ const Register = () => {
         <div className="relative hidden min-h-[450px] w-1/3 overflow-hidden bg-black sm:block">
           <h1 className="absolute bottom-3 right-3 text-right text-2xl font-semibold text-white">
             Hey! <br /> Welcome to
-            <br /> Motor Hub
+            <br /> SpeedGear Hub
           </h1>
           <span className="absolute -left-8 -top-8 z-20 h-32 w-32 rounded-full bg-[#ffcc893d] duration-500 group-hover:h-56 group-hover:w-56"></span>
           <span className="absolute -left-5 -top-5 z-10 h-36 w-36 rounded-full bg-[#f7c788]"></span>
