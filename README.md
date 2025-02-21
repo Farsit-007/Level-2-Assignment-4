@@ -16,13 +16,13 @@ A secure, responsive e-commerce platform for bike sales with authentication, pro
 
 **•🔹 Core Features** </br>
 
-• Auth: Secure registration (default: Customer), JWT login/logout
-• Public Pages: Home, All Products (search, filters), Product Details, About
-• Private Routes:
-• Checkout: Order placement, stock validation, SurjoPay payment
-• Dashboard:
-• Admin: User, product, order management (CRUD)
-• User: Order history, profile updates
+• Auth: Secure registration (default: Customer), JWT login/logout </br>
+• Public Pages: Home, All Products (search, filters), Product Details, About </br>
+• Private Routes: </br>
+• Checkout: Order placement, stock validation, SurjoPay payment </br>
+• Dashboard: </br>
+• Admin: User, product, order management (CRUD) </br>
+• User: Order history, profile updates </br>
 
 
 ## 🛠️ Technology Stack
