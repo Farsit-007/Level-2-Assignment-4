@@ -1,50 +1,70 @@
-# React + TypeScript + Vite
+## Assignment - 4
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Student Id - WEB9-1722
 
-Currently, two official plugins are available:
+## Project Name - SpeedGear Hub (Set - 2 : Bike Store)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## [Frontend Live Link](https://bike-shop-nine.vercel.app/)
 
-## Expanding the ESLint configuration
+## [Backend Live Link](https://assignment-2-gray-sigma.vercel.app/) (Updated As Assignment - 4)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Admin Credentials - Email : admin@gmail.com ; Password : 12345
 
-- Configure the top-level `parserOptions` property like this:
+## 🚀 Project Features :
+
+A secure, responsive e-commerce platform for bike sales with authentication, product management, and SurjoPay integration.
+
+**•🔹 Core Features** </br>
+
+• Auth: Secure registration (default: Customer), JWT login/logout
+• Public Pages: Home, All Products (search, filters), Product Details, About
+• Private Routes:
+• Checkout: Order placement, stock validation, SurjoPay payment
+• Dashboard:
+• Admin: User, product, order management (CRUD)
+• User: Order history, profile updates
+
+
+## 🛠️ Technology Stack
+
+• Backend: Node.js, Express.js</br>
+• Language: TypeScript</br>
+• Database: MongoDB with Mongoose</br>
+• Validation: Mongoose schema & Zod Validation</br>
+• Utilities: Dotenv, Cors</br>
+• Development Tools: Nodemon, TypeScript</br>
+• Frontend : - TypeScript - React - Redux - Node / Express</br>
+
+### 🧰 Setup Instructions
 
 ```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+git clone <repository-url>
+cd level-2-Assignment-4
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### .env file
 
 ```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+PORT =
+DATABASE_URI =
+NODE_ENV = Development
+JWT_ACCESS_SECRET =
+JWT_REFRESH_SECRET =
+SP_ENDPOINT=https://sandbox.shurjopayment.com
+SP_USERNAME=sp_sandbox
+SP_PASSWORD=pyyk97hu&6u6
+SP_PREFIX=SP
+SP_RETURN_URL=https://sandbox.shurjopayment.com/response
+```
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+### Install NPM
+
+```shell
+npm i
+```
+
+### Run the Project
+
+```shell
+npm run dev
 ```
