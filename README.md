@@ -8,8 +8,6 @@
 
 ## [Backend Repo Link](https://github.com/Farsit-007/level-2-Assignment-2) (Updated As Assignment - 4)
 
-## Admin Credentials - Email : admin@gmail.com ; Password : 12345
-
 ## 🚀 Project Features :
 
 A secure, responsive e-commerce platform for bike sales with authentication, product management, and SurjoPay integration.

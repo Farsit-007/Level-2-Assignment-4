@@ -135,7 +135,7 @@ const ProductUpdate = () => {
 
   return (
     <div className="mx-auto w-full space-y-4 rounded-lg border bg-white p-7 shadow-lg sm:p-10">
-      <h1 className="text-3xl font-semibold tracking-tight">Create Product</h1>
+      <h1 className="text-3xl font-semibold tracking-tight">Update Product</h1>
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid md:grid-cols-2 gap-5">
