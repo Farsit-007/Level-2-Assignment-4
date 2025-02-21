@@ -6,7 +6,7 @@
 
 ## [Frontend Live Link](https://bike-shop-nine.vercel.app/)
 
-## [Backend Live Link](https://assignment-2-gray-sigma.vercel.app/) (Updated As Assignment - 4)
+## [Backend Repo Link](https://github.com/Farsit-007/level-2-Assignment-2) (Updated As Assignment - 4)
 
 ## Admin Credentials - Email : admin@gmail.com ; Password : 12345
 
@@ -14,7 +14,7 @@
 
 A secure, responsive e-commerce platform for bike sales with authentication, product management, and SurjoPay integration.
 
-**•🔹 Core Features** </br>
+**🔹 Core Features** </br>
 
 • Auth: Secure registration (default: Customer), JWT login/logout </br>
 • Public Pages: Home, All Products (search, filters), Product Details, About </br>
@@ -23,7 +23,6 @@ A secure, responsive e-commerce platform for bike sales with authentication, pro
 • Dashboard: </br>
 • Admin: User, product, order management (CRUD) </br>
 • User: Order history, profile updates </br>
-
 
 ## 🛠️ Technology Stack
 
@@ -42,7 +41,7 @@ git clone <repository-url>
 cd level-2-Assignment-4
 ```
 
-### .env file
+### .env file (For Backend only)
 
 ```js
 PORT =
