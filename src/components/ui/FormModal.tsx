@@ -13,7 +13,8 @@ import { TUser } from "../../types/user.type";
 const FormModal = () => {
   const user = useAppSelector(useCurrentUser);
   const { data: userInfo, isLoading } = useGetSingleUserQuery(user?.userEmail);
-  const [updateProfileUser] = useUpdateProfileUserMutation();
+  const [updateProfileUser, { isLoading: loading }] =
+    useUpdateProfileUserMutation();
   const [openModal, setOpenModal] = useState(false);
   const [formData, setFormData] = useState<{
     name: string;
@@ -198,10 +199,15 @@ const FormModal = () => {
               </div>
 
               <button
+                disabled={loading}
                 type="submit"
                 className="w-full flex text-white items-center justify-center rounded-lg bg-black px-4 py-2 text-[12px] font-semibold  hover:bg-[#f7c788] sm:text-sm md:text-base"
               >
-                Submit
+                {loading ? (
+                  <div className="w-7 h-7 animate-[spin_2s_linear_infinite] rounded-full border-8 border-dotted border-sky-600"></div>
+                ) : (
+                  "Update"
+                )}
               </button>
             </form>
           </div>

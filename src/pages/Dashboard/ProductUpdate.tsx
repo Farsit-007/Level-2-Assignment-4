@@ -19,7 +19,7 @@ const ProductUpdate = () => {
   const token = useAppSelector(useCurrentToken);
   const { productId } = useParams();
   const navigate = useNavigate();
-  const [updateProduct] = useUpdateProductMutation();
+  const [updateProduct, { isLoading: loading }] = useUpdateProductMutation();
   const { data: product, isLoading, error } = useGetProductQuery(productId);
   const [formData, setFormData] = useState<TProduct>({
     name: "",
@@ -118,7 +118,6 @@ const ProductUpdate = () => {
         navigate(`/${(user as TUser)?.role}/manage-product`);
       }
     } catch (error) {
-      console.log(error);
       const typedError = error as TError;
       const errorMessage =
         typedError?.data?.errorSource?.[0]?.message || "Something went wrong";
@@ -320,8 +319,15 @@ const ProductUpdate = () => {
           </div>
         </div>
 
-        <button className="flex mt-5 font-medium bg-black text-white transition-all duration-300 p-2 px-6 hover:bg-[#f7c788] hover:text-black rounded-md items-center cursor-pointer gap-2">
-          Update Product
+        <button
+          disabled={loading}
+          className="flex mt-5 font-medium bg-black text-white transition-all duration-300 p-2 px-6 hover:bg-[#f7c788] hover:text-black rounded-md items-center cursor-pointer gap-2"
+        >
+          {loading ? (
+            <div className="w-7 h-7 animate-[spin_2s_linear_infinite] rounded-full border-8 border-dotted border-sky-600"></div>
+          ) : (
+            "Update Product"
+          )}
         </button>
       </form>
     </div>
