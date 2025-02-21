@@ -35,7 +35,7 @@ const AdminProductCard: React.FC<CardProps> = ({ p }) => {
       <div className="flex flex-col space-y-1.5">
         <h3 className="text-2xl font-semibold ">{p?.name}</h3>
         <p className="text-sm text-gray-500 dark:/60">
-          {p.description.slice(0, 50)}...
+          {p?.description?.slice(0, 50)}...
         </p>
       </div>
       <img

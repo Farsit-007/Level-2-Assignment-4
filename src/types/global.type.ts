@@ -27,3 +27,10 @@ export type TQueryParams = {
   name: string;
   value: boolean | React.Key;
 };
+
+export type TFilters = {
+  minPrice: string;
+  maxPrice: string;
+  category: string;
+  inStock: string;
+};

@@ -2,29 +2,30 @@ import { useState, useEffect } from "react";
 import Card from "../components/ui/Card";
 import FilterButton from "../components/ui/Filter";
 import { useGetAllProductQuery } from "../redux/features/publicProduct/featuredProduct.api";
+import { TFilters } from "../types/global.type";
 
 const AllProduct = () => {
-  const [filters, setFilters] = useState({
-    price: "",
-    brand: "",
+  const [filters, setFilters] = useState<TFilters>({
+    minPrice: "",
+    maxPrice: "",
     category: "",
     inStock: "",
   });
   const [searchTerm, setSearchTerm] = useState<string>("");
-
-  const [params, setParams] = useState<any>({});
+  const [params, setParams] = useState({});
 
   useEffect(() => {
-    setParams({
-      ...filters,
-      searchTerm,
-    });
-  }, [filters, searchTerm]);
+    setParams({ searchTerm });
+  }, [searchTerm]);
 
   const { data } = useGetAllProductQuery(params);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
+  };
+
+  const applyFilters = (filters: TFilters) => {
+    setParams({ ...filters, searchTerm });
   };
 
   return (
@@ -34,7 +35,7 @@ const AllProduct = () => {
           <input
             className="peer rounded-full border border-sky-600 bg-transparent px-4 py-2 text-sky-600 focus:outline-none"
             type="text"
-            placeholder=""
+            placeholder="Search..."
             id="navigate_ui_input_33"
             value={searchTerm}
             onChange={handleInputChange}
@@ -47,7 +48,11 @@ const AllProduct = () => {
           </label>
         </div>
         <div>
-          <FilterButton filters={filters} setFilters={setFilters} />
+          <FilterButton
+            filters={filters}
+            setFilters={setFilters}
+            applyFilters={applyFilters}
+          />
         </div>
       </div>
 

@@ -14,7 +14,7 @@ const Card: React.FC<CardProps> = ({ p }) => {
           {p.brand}
         </p>
         <p className="text-sm text-gray-500 dark:/60">
-          {p.description.slice(0, 50)}...
+          {p?.description?.slice(0, 50)}...
         </p>
       </div>
       <div className="flex items-end justify-between">

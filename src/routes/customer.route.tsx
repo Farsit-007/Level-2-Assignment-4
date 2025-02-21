@@ -1,5 +1,6 @@
 
-import OrderTable from "../pages/Dashboard/order/OrderTAble";
+
+import OrderTable from "../pages/Dashboard/order/OrderTable";
 import Profile from "../pages/Dashboard/Profile/Profile";
 
 export const customerPaths = [
