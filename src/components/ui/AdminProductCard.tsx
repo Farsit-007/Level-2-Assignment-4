@@ -48,20 +48,19 @@ const AdminProductCard: React.FC<CardProps> = ({ p }) => {
       <div className="w-full flex items-center justify-between md:gap-5 gap-10">
         <Link
           to={`/${(user as TUser)?.role}/update-product/${p?._id}`}
-          className="w-full flex items-center justify-center rounded-lg bg-slate-800 px-4 py-2 text-[12px] font-semibold  hover:bg-slate-900 sm:text-sm md:text-base"
+          className="w-full flex text-white items-center justify-center rounded-lg bg-black px-4 py-2 text-[12px] font-semibold  hover:bg-[#f7c788] sm:text-sm md:text-base"
         >
           Edit
         </Link>
 
         <div className="mx-auto flex w-72 items-center justify-center">
           <button
-            onClick={() => setOpenModal(true)} // Open modal
-            className="w-full flex items-center justify-center rounded-lg bg-slate-800 px-4 py-2 text-[12px] font-semibold  hover:bg-slate-900 sm:text-sm md:text-base"
+            onClick={() => setOpenModal(true)}
+            className="w-full flex text-white items-center justify-center rounded-lg bg-black px-4 py-2 text-[12px] font-semibold  hover:bg-[#f7c788] sm:text-sm md:text-base"
           >
             Delete
           </button>
 
-          {/* Modal */}
           {openModal && (
             <div
               onClick={() => setOpenModal(false)}

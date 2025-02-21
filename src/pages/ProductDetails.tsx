@@ -20,7 +20,7 @@ const ProductDetails = () => {
   return (
     <div className="my-5">
       <div className="flex max-w-6xl mx-auto bg-base-100">
-        <div className="flex justify-center items-center min-h-[500px] rounded-xl bg-[#b7004f13] md:w-[45%]">
+        <div className="flex justify-center items-center min-h-[500px] rounded-xl bg-[#f7c788] md:w-[45%]">
           <figure className="w-[80%] mx-auto h-[80%] overflow-hidden">
             <img
               src={product?.image as string}
@@ -36,7 +36,9 @@ const ProductDetails = () => {
               <h2 className="text-2xl md:text-[40px] font-bold playfair pb-3">
                 {product?.name}
               </h2>
-              <h3 className="text-lg font-medium py-2">{product?.category}</h3>
+              <h3 className="rounded-lg w-[30%] font-medium px-2 bg-[#f7c788] p-1 text-center text-sm ">
+                {product?.category}
+              </h3>
               <div className="py-2 border-b text-[16px]">
                 <p>
                   <span className="font-bold">Description:</span>{" "}
@@ -88,7 +90,7 @@ const ProductDetails = () => {
           </div>
           <div className=" mt-10 ">
             <Link
-              className="w-full flex items-center justify-center rounded-lg bg-slate-800 px-6 py-2 text-[12px] font-semibold  hover:bg-slate-900 sm:text-sm md:text-base"
+              className="flex justify-center font-medium  bg-black text-white transition-all duration-300 p-2 hover:bg-[#f7c788] hover:text-black rounded-md items-center cursor-pointer gap-2"
               to={`/checkout/${product?._id}`}
             >
               Buy Now

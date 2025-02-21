@@ -288,7 +288,7 @@ const ProductCreate = () => {
           </div>
         </div>
 
-        <button className="rounded-md bg-sky-500 px-4 py-2 text-white transition-colors hover:bg-sky-600">
+        <button className="flex mt-5 font-medium bg-black text-white transition-all duration-300 p-2 px-6 hover:bg-[#f7c788] hover:text-black rounded-md items-center cursor-pointer gap-2">
           Create Product
         </button>
       </form>

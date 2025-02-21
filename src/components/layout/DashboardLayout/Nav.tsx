@@ -42,7 +42,7 @@ const Nav: React.FC<Props> = ({ onToggleSidebar }) => {
         <div className="flex items-center gap-5 ">
           <button
             onClick={onToggleSidebar}
-            className=" bg-[#EAEAFF80] text-blue-600 p-[6px] rounded-md "
+            className=" bg-[#EAEAFF80] text-black p-[6px] rounded-md "
           >
             <RxHamburgerMenu size={25} />
           </button>
@@ -73,9 +73,9 @@ const Nav: React.FC<Props> = ({ onToggleSidebar }) => {
               {items.map((item, idx) => (
                 <button
                   key={idx}
-                  className={`rounded-sm bg-sky-400 text-center py-1 px-2 ${
+                  className={`rounded-sm bg-black text-center py-1 px-2 ${
                     open ? "opacity-100 duration-500" : "opacity-0 duration-200"
-                  } hover:bg-sky-500`}
+                  } hover:bg-black`}
                   style={{
                     transform: `translateX(${open ? 0 : (idx + 1) * 10}px)`,
                   }}

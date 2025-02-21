@@ -132,9 +132,10 @@ const VerifyPage = () => {
             onClick={() =>
               navigate(`/${(user as TUser)?.role}/order-management`)
             }
-            className="bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-blue-700"
+            className="flex mt-5 font-medium bg-black text-white transition-all duration-300 p-2 px-6 hover:bg-[#f7c788] hover:text-black rounded-md items-center cursor-pointer gap-2"
+            
           >
-            View Order
+            View Order History
           </button>
         </div>
       </div>

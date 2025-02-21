@@ -27,7 +27,7 @@ const UserManagement = () => {
       <div className="overflow-x-auto">
         <table className="min-w-[100%] shadow-md border mx-auto border-gray-100 my-6">
           <thead>
-            <tr className="bg-[#0095FF] text-white">
+            <tr className="bg-black text-white">
               <th className="py-4 px-6 text-lg text-left border-b">
                 Customer Name
               </th>
@@ -57,7 +57,7 @@ const UserManagement = () => {
                   <button
                     onClick={() => handleBlockToggle(u._id, u.isBlock)}
                     className={`${
-                      u.isBlock ? "bg-red-500" : "bg-blue-500"
+                      u.isBlock ? "bg-red-500" : "bg-black"
                     } hover:scale-110 scale-100 transition-all duration-100 text-white py-2 px-4 rounded-md`}
                   >
                     {u.isBlock ? "Unblock" : "Block"}

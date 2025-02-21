@@ -99,7 +99,7 @@ const Testimonial = () => {
               key={idx}
               className="p-4 min-w-full md:min-w-[50%] transition-transform"
             >
-              <div className="h-full p-8 rounded-lg shadow-xl bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600">
+              <div className="h-full p-8 rounded-lg shadow-xl bg-gradient-to-r from-[#f7c788] via-gray-600 to-black">
                 <div className="mb-4 flex justify-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

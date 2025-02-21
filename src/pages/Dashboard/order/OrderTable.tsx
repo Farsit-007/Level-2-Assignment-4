@@ -15,7 +15,7 @@ const OrderTable = () => {
         <div className="overflow-x-auto">
           <table className="min-w-[100%] shadow-md border mx-auto border-gray-100 my-6">
             <thead>
-              <tr className="bg-[#0095FF] text-white">
+              <tr className="bg-black text-white">
                 <th className="py-4 px-6 text-sm text-center border-b">
                   Product Image
                 </th>
@@ -29,7 +29,7 @@ const OrderTable = () => {
                   Buyer Name
                 </th>
                 <th className="py-4 px-6 text-sm text-center border-b">
-                  Total Price
+                  Total Paid ($)
                 </th>
 
                 <th className="py-4 px-6 text-sm text-center border-b">

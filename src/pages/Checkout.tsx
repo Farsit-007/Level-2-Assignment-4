@@ -5,6 +5,8 @@ import { FaDollarSign } from "react-icons/fa6";
 import { useAppSelector } from "../redux/features/hooks";
 import { useCurrentUser } from "../redux/features/auth/authSlice";
 import { useCreateOrdersMutation } from "../redux/features/orders/order.api";
+import { TError } from "../types/global.type";
+import toast from "react-hot-toast";
 
 const Checkout = () => {
   const { productId } = useParams();
@@ -38,23 +40,24 @@ const Checkout = () => {
 
   const handleShurjoPayPayment = async (e: FormEvent) => {
     e.preventDefault();
-    console.log("Initiating payment for:", {
-      ...formData,
-      product: product?._id,
-      productName: product?.name,
-      productImage: product?.image,
-      quantity,
-      totalPrice,
-    });
-    const orderData = {
-      ...formData,
-      product: product?._id,
-      productName: product?.name,
-      productImage: product?.image,
-      quantity,
-      totalPrice,
-    };
-    await createOrder(orderData).unwrap();
+
+    try {
+      const orderData = {
+        ...formData,
+        product: product?._id,
+        productName: product?.name,
+        productImage: product?.image,
+        quantity,
+        totalPrice,
+      };
+      await createOrder(orderData).unwrap();
+    } catch (error) {
+      console.log(error);
+      const typedError = error as TError;
+      const errorMessage =
+        typedError?.data?.errorSource?.[0]?.message || "Something went wrong";
+      toast.error(errorMessage);
+    }
   };
   useEffect(() => {
     if (isSuccess && data?.data) {
@@ -69,7 +72,6 @@ const Checkout = () => {
     <div>
       <form onSubmit={handleShurjoPayPayment}>
         <div className="flex flex-col lg:flex-row px-5 max-w-[1280px] mx-auto lg:px-0 gap-10">
-          {/* User Information */}
           <div className="lg:w-[50%] space-y-4">
             <div className="bg-white p-2 md:px-5 rounded-xl">
               <h1 className="text-[#3D6887] mb-5 text-[24px] font-semibold">
@@ -150,12 +152,12 @@ const Checkout = () => {
                 <h1 className="flex items-center font-medium gap-1">
                   Quantity
                 </h1>
-                <div className="flex items-center border rounded-md">
+                <div className="flex items-center ">
                   <button
                     type="button"
                     onClick={decreaseQuantity}
                     disabled={quantity === 1}
-                    className="px-3 py-1 bg-gray-200 rounded-l-md hover:bg-gray-300 disabled:opacity-50"
+                    className="px-3 py-1 bg-gray-200 rounded-md hover:bg-gray-300 disabled:opacity-50"
                   >
                     -
                   </button>
@@ -163,7 +165,7 @@ const Checkout = () => {
                   <button
                     type="button"
                     onClick={increaseQuantity}
-                    className="px-3 py-1 bg-gray-200 rounded-r-md hover:bg-gray-300"
+                    className="px-3 py-1 bg-gray-200 rounded-md hover:bg-gray-300"
                   >
                     +
                   </button>
@@ -181,7 +183,7 @@ const Checkout = () => {
               <div className="pb-4">
                 <button
                   type="submit"
-                  className="w-full p-3 rounded-full text-white bg-[#23209F]"
+                  className="flex mt-5 w-full justify-center font-medium bg-black text-white transition-all duration-300 p-2 px-6 hover:bg-[#f7c788] hover:text-black rounded-md items-center cursor-pointer gap-2"
                 >
                   Check Out
                 </button>

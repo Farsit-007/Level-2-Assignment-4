@@ -7,23 +7,27 @@ const blogData = {
       {
         cards: [
           {
-            image: "https://via.placeholder.com/300",
+            image:
+              "https://i.ibb.co.com/Rp3ZwWy8/motorbike-wall-with-white-background-vintage-custom-motorcycle-toy-460848-13004.jpg",
             title: "Bike Frame",
             description: "The heart of your bike, where everything is mounted.",
           },
           {
-            image: "https://via.placeholder.com/300",
+            image:
+              "https://i.ibb.co.com/9mcGxrPc/front-tire-orange-motorbike.jpg",
             title: "Wheels",
             description:
               "A good pair of wheels can make all the difference in performance and comfort.",
           },
           {
-            image: "https://via.placeholder.com/300",
+            image:
+              "https://i.ibb.co.com/Fbv1DqCk/man-choosed-motorcycles-moto-shop-guy-black-jacket.jpg",
             title: "Brakes",
             description: "Keep yourself safe with quality brake systems.",
           },
           {
-            image: "https://via.placeholder.com/300",
+            image:
+              "https://i.ibb.co.com/jP4Krn8K/WMF36-OICPZEJDPKABMHQVHXBZ4.jpg",
             title: "Gears",
             description:
               "Mastering gear shifting for different terrains is key.",
@@ -41,7 +45,6 @@ const blogData = {
 const Blogs = () => {
   return (
     <div className="container mx-auto p-6">
-      {/* Blog Header */}
       <header className="text-center mb-10">
         <h1 className="text-3xl font-bold text-gray-800">
           {blogData.blog.title}
@@ -51,7 +54,6 @@ const Blogs = () => {
         </p>
       </header>
 
-      {/* Creative Design Section */}
       {blogData.blog.sections.map((section, index) => {
         if (section.cards) {
           return (
@@ -62,11 +64,14 @@ const Blogs = () => {
                     key={cardIndex}
                     className="bg-white shadow-lg rounded-lg p-4"
                   >
-                    <img
-                      src={card.image}
-                      alt={card.title}
-                      className="rounded-lg mb-4"
-                    />
+                    <figure className="w-full">
+                      {" "}
+                      <img
+                        src={card.image}
+                        alt={card.title}
+                        className="rounded-lg mb-4 w-full h-28 object-cover"
+                      />
+                    </figure>
                     <h3 className="font-bold text-xl text-gray-700">
                       {card.title}
                     </h3>

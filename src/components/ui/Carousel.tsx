@@ -91,7 +91,7 @@ export const Carousel = () => {
               <h2 className="text-lg md:text-2xl py-4 font-bold">
                 {slide.text}
               </h2>
-              <button className="mt-2 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
+              <button className="flex border font-medium transition-all duration-300 p-1 px-4 hover:bg-[#f7c788] hover:text-black rounded-md items-center cursor-pointer gap-2">
                 {slide.buttonText}
               </button>
             </div>

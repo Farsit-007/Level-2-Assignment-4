@@ -1,4 +1,3 @@
-
 import AdminOrder from "../pages/Dashboard/adminOrder/AdminOrder";
 import ProductCreate from "../pages/Dashboard/ProductCreate";
 import ProductList from "../pages/Dashboard/ProductList";
@@ -37,7 +36,7 @@ export const adminPaths = [
     ],
   },
   {
-    name: "Order Management",
+    name: "Order History",
     path: "order-management",
     element: <AdminOrder />,
   },

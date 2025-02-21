@@ -77,7 +77,6 @@ const FormModal = () => {
         toast.success(res?.message);
       }
     } catch (error) {
-      console.log(error);
       const typedError = error as TError;
       const errorMessage =
         typedError?.data?.errorSource?.[0]?.message || "Something went wrong";
@@ -91,12 +90,11 @@ const FormModal = () => {
     <div className="mx-auto flex  items-center justify-center">
       <button
         onClick={() => setOpenModal(true)}
-        className="rounded-md  py-2 px-5 "
+        className="w-full mt-5 flex text-white items-center justify-center rounded-full bg-black px-4 py-2 text-[12px] font-semibold  hover:bg-[#f7c788] sm:text-sm md:text-base"
       >
         Update Profile
       </button>
 
-      {/* MODAL */}
       {openModal && (
         <div
           className="fixed inset-0 z-90 flex items-center justify-center"
@@ -197,7 +195,7 @@ const FormModal = () => {
 
               <button
                 type="submit"
-                className="w-full my-5 rounded-lg bg-blue-600 py-2 text-white hover:bg-blue-700"
+                className="w-full flex text-white items-center justify-center rounded-lg bg-black px-4 py-2 text-[12px] font-semibold  hover:bg-[#f7c788] sm:text-sm md:text-base"
               >
                 Submit
               </button>

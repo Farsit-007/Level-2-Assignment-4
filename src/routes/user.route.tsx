@@ -23,11 +23,12 @@ export const userRoutes = [
   {
     path: "checkout/:productId",
     element: (
-      <ProtectedRoute role={"customer"}>
+      <ProtectedRoute roles={["customer", "admin"]}>
         <Checkout />
       </ProtectedRoute>
     ),
   },
+  
   {
     name: "All Products",
     path: "all-product",

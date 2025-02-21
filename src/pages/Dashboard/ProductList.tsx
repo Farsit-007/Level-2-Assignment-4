@@ -3,6 +3,12 @@ import { useGetAdminProductQuery } from "../../redux/features/admin/productManag
 
 const ProductList = () => {
   const { data, isLoading, error } = useGetAdminProductQuery(undefined);
+  if (isLoading) {
+    return <div>Loading</div>;
+  }
+  if (error) {
+    return <div>Error</div>;
+  }
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
       {data?.map((p) => (

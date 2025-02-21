@@ -40,7 +40,7 @@ const FilterButton = ({
     <div className="relative">
       <button
         onClick={() => setOpenModal(true)}
-        className="rounded-lg bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
+        className="flex font-medium bg-black text-white transition-all duration-300 p-1 px-4 hover:bg-[#f7c788] hover:text-black rounded-md items-center cursor-pointer gap-2"
       >
         Filter
       </button>
@@ -111,16 +111,16 @@ const FilterButton = ({
             </div>
 
             {/* Buttons */}
-            <div className="flex justify-between mt-4">
+            <div className="flex justify-between gap-10 mt-4">
               <button
                 onClick={() => setOpenModal(false)}
-                className="px-6 py-2 text-sm text-gray-600 hover:bg-gray-200 rounded-md"
+                className="w-full flex text-white items-center justify-center rounded-lg bg-black px-4 py-2 text-[12px] font-semibold  hover:bg-[#f7c788] sm:text-sm md:text-base"
               >
                 Close
               </button>
               <button
                 onClick={handleApplyFilters}
-                className="px-6 py-2 text-sm bg-indigo-600 text-white hover:bg-indigo-700 rounded-md"
+                className="w-full flex text-white items-center justify-center rounded-lg bg-black px-4 py-2 text-[12px] font-semibold  hover:bg-[#f7c788] sm:text-sm md:text-base"
               >
                 Apply Filters
               </button>

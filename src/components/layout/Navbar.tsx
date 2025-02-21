@@ -33,22 +33,22 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <nav className="flex items-center justify-between max-w-[1380px] mx-auto px-4 py-2  ">
+    <nav className="flex items-center text-white justify-between max-w-[1380px] mx-auto px-4 py-2  ">
       <div className="scale-100 cursor-pointer rounded-2xl px-3 py-2 text-xl font-semibold  transition-all duration-200 hover:scale-110">
         <h2>Logo</h2>
       </div>
 
-      <ul className="hidden md:flex items-center gap-8">
+      <ul className="hidden md:flex font-medium items-center gap-8">
         {menuItems.map((item, index) => (
           <li key={index} className="group flex cursor-pointer flex-col">
             {item.label}
-            <span className="mt-[2px] h-[3px] w-0 rounded-full bg-[#f7c788] transition-all duration-300 group-hover:w-full"></span>
+            <span className="mt-[2px] h-[3px] w-0 rounded-full  bg-[#f7c788] transition-all duration-300 group-hover:w-full"></span>
           </li>
         ))}
         {user ? (
           <Link
             to={`/${(user as TUser)?.role}/profile`}
-            className="flex pb-1 items-center cursor-pointer gap-2"
+            className="flex border  transition-all duration-300 p-1 px-2 hover:bg-[#f7c788] hover:text-black rounded-md items-center cursor-pointer gap-2"
           >
             Dashboard <FaArrowAltCircleRight />
           </Link>
@@ -56,13 +56,13 @@ export const Navbar = () => {
           <div className="flex items-center gap-5">
             <Link
               to={"/login"}
-              className="flex items-center cursor-pointer pl-3 lg:pl-0 pb-1 gap-2"
+              className="flex border  transition-all duration-300 p-1 px-2 hover:bg-[#f7c788] hover:text-black rounded-md items-center cursor-pointer gap-2"
             >
               Login
             </Link>
             <Link
               to={`/register`}
-              className="flex items-center cursor-pointer pl-3 lg:pl-0 pb-1 gap-2"
+              className="flex border  transition-all duration-300 p-1 px-2 hover:bg-[#f7c788] hover:text-black rounded-md items-center cursor-pointer gap-2"
             >
               Register
             </Link>
@@ -108,7 +108,7 @@ export const Navbar = () => {
         {user ? (
           <Link
             to={`/${(user as TUser)?.role}/profile`}
-            className="flex items-center cursor-pointer pl-3 lg:pl-0 pb-1 gap-2"
+            className="flex border  transition-all duration-300 p-1 px-2 hover:bg-[#f7c788] hover:text-black rounded-md items-center cursor-pointer gap-2"
           >
             Dashboard <FaArrowAltCircleRight />
           </Link>
@@ -116,13 +116,13 @@ export const Navbar = () => {
           <div className="flex items-center gap-2 lg:gap-5">
             <Link
               to={"/login"}
-              className="flex items-center cursor-pointer pl-3 lg:pl-0 pb-1 gap-2"
+              className="flex border  transition-all duration-300 p-1 px-2 hover:bg-[#f7c788] hover:text-black rounded-md items-center cursor-pointer gap-2"
             >
               Login
             </Link>
             <Link
               to={`/register`}
-              className="flex items-center pl-3 cursor-pointer lg:pl-0 pb-1 gap-2"
+              className="flex border  transition-all duration-300 p-1 px-2 hover:bg-[#f7c788] hover:text-black rounded-md items-center cursor-pointer gap-2"
             >
               Register
             </Link>

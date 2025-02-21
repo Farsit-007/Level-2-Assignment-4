@@ -51,7 +51,7 @@ const Menu = () => {
                   onClick={() => handleDropdownToggle(menu.key)}
                   className="flex w-full items-center justify-between p-3 text-sm font-medium rounded-lg transition-all duration-200 text-gray-700 hover:bg-gray-200"
                 >
-                  {menu.label.name}  <MdOutlineArrowDropDown size={20} />
+                  {menu.label.name} <MdOutlineArrowDropDown size={20} />
                 </button>
 
                 {dropDownOpen[menu.key] && (
@@ -64,7 +64,7 @@ const Menu = () => {
                             className={({ isActive }) =>
                               `block p-2 text-sm font-medium rounded-lg transition-all duration-200 ${
                                 isActive
-                                  ? "bg-[#23209F] text-white"
+                                  ? "bg-black text-white"
                                   : "text-gray-700 hover:bg-gray-200"
                               }`
                             }
@@ -84,7 +84,7 @@ const Menu = () => {
                   className={({ isActive }) =>
                     `block p-3 text-sm font-medium rounded-lg transition-all duration-200 ${
                       isActive
-                        ? "bg-[#23209F] text-white"
+                        ? "bg-black text-white"
                         : "text-gray-700 hover:bg-gray-200"
                     }`
                   }

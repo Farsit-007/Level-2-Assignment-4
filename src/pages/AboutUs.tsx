@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-
+// import a1 from "./a1."
 const AboutUs = () => {
   const navigate = useNavigate();
   return (
@@ -7,7 +7,7 @@ const AboutUs = () => {
       <div
         className="bg-cover bg-center text-white py-12 p-8"
         style={{
-          backgroundImage: "url('./TVS BAU - website banner1_682 x 471.webp')",
+          backgroundImage: "url('./about.jpg')",
         }}
       >
         <h3 className="text-left font-bold text-2xl sm:text-5xl md:text-6xl">
@@ -34,13 +34,13 @@ const AboutUs = () => {
             rigorous testing to ensure top-notch performance. We aim to make
             every ride memorable, offering a seamless blend of power, comfort,
             and style that is unmatched in the industry. As a proud part of
-            Bangladesh’s two-wheeler revolution, we continue to innovate and
+            Bangladesh's two-wheeler revolution, we continue to innovate and
             lead the way with a focus on the future of mobility.
           </p>
         </div>
         <div className="flex justify-center items-center">
           <img
-            src="path_to_your_image.jpg"
+            src="./a1.jpg"
             alt="Motor Hub Bikes"
             className="w-full max-w-md rounded-lg shadow-xl"
           />
@@ -51,7 +51,7 @@ const AboutUs = () => {
       <div className="grid lg:grid-cols-2 gap-10 mt-12 px-4 sm:px-8 lg:px-16">
         <div className="flex justify-center items-center">
           <img
-            src="path_to_your_image2.jpg"
+            src="./a2.jpeg"
             alt="Our Vision and Mission"
             className="w-full max-w-md rounded-lg shadow-xl"
           />
@@ -76,7 +76,7 @@ const AboutUs = () => {
         </div>
       </div>
 
-      <div className="my-12 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 py-16 text-white text-center">
+      <div className="my-12 bg-gradient-to-r from-[#f7c788] via-gray-600 to-black py-16 text-white text-center">
         <h2 className="text-4xl font-bold">Join the Motor Hub Family Today!</h2>
         <p className="text-xl mt-4">
           Discover your perfect ride with Motor Hub. Ride with confidence, ride

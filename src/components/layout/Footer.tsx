@@ -4,7 +4,7 @@ import { navRouteGenerator } from "../../utils/navItems";
 export default function Footer() {
   const menuItems = navRouteGenerator(userRoutes);
   return (
-    <footer className="flex flex-col max-w-[1380px] mx-auto px-4">
+    <footer className="flex flex-col text-white max-w-[1380px] mx-auto px-4">
       <div className="flex flex-col  items-center justify-between gap-5  py-8  md:flex-row md:gap-0">
         <h5 className="text-2xl font-bold">Motor Hub</h5>
         <nav className="text-lg">
