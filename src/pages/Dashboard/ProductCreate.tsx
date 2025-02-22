@@ -83,6 +83,8 @@ const ProductCreate = () => {
       let imageUrl = "";
       if (formData.image) {
         imageUrl = await uploadFile(formData.image);
+      } else {
+        toast.error("Failed to upload image");
       }
       const productData = {
         ...formData,
@@ -292,7 +294,10 @@ const ProductCreate = () => {
           </div>
         </div>
 
-        <button disabled={isLoading} className="flex mt-5 font-medium bg-black text-white transition-all duration-300 p-2 px-6 hover:bg-[#f7c788] hover:text-black rounded-md items-center cursor-pointer gap-2">
+        <button
+          disabled={isLoading}
+          className="flex mt-5 font-medium bg-black text-white transition-all duration-300 p-2 px-6 hover:bg-[#f7c788] hover:text-black rounded-md items-center cursor-pointer gap-2"
+        >
           {isLoading ? (
             <div className="w-7 h-7 animate-[spin_2s_linear_infinite] rounded-full border-8 border-dotted border-sky-600"></div>
           ) : (

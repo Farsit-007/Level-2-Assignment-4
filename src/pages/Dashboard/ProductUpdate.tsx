@@ -103,6 +103,8 @@ const ProductUpdate = () => {
       let imageUrl = "";
       if (formData.image) {
         imageUrl = await uploadFile(formData.image);
+      } else {
+        toast.error("Failed to upload image");
       }
       const productData = {
         ...formData,

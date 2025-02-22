@@ -6,8 +6,9 @@ import { useAppDispatch } from "../../redux/features/hooks";
 import { logout } from "../../redux/features/auth/authSlice";
 
 const ChangePassword = () => {
-  const [ChangePassword] = useChangePasswordMutation();
+  const [ChangePassword, { isLoading }] = useChangePasswordMutation();
   const dispatch = useAppDispatch();
+  const [error, setError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     oldPassword: "",
     newPassword: "",
@@ -19,6 +20,11 @@ const ChangePassword = () => {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    if (formData.newPassword.length < 6) {
+      setError("Password must be at least 5 characters long");
+      return;
+    }
+    setError(null);
     try {
       const res = await ChangePassword(formData).unwrap();
       if (res?.success) {
@@ -69,11 +75,17 @@ const ChangePassword = () => {
               required
             />
           </div>
+          <small className="text-red-500">{error}</small>
           <button
+            disabled={isLoading}
             type="submit"
             className="w-full flex text-white items-center justify-center rounded-lg bg-black px-4 py-2 text-[12px] font-semibold  hover:bg-[#f7c788] sm:text-sm md:text-base"
           >
-            Update
+            {isLoading ? (
+              <div className="w-7 h-7 animate-[spin_2s_linear_infinite] rounded-full border-8 border-dotted border-sky-600"></div>
+            ) : (
+              "Update"
+            )}
           </button>
         </form>
       </div>
