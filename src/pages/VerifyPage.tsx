@@ -25,8 +25,6 @@ const VerifyPage = () => {
     toast.success("Order is in Pending");
   } else if (orderData?.bank_status === "Failed") {
     toast.success("Order is Failed");
-  } else {
-    toast.success("Order Canceled");
   }
   if (isLoading) {
     return (

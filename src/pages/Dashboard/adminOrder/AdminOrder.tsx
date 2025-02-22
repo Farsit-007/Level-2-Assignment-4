@@ -36,7 +36,7 @@ const AdminOrder = () => {
                   Issue Date
                 </th>
                 <th className="py-4 px-6 text-sm text-center border-b">
-                  Order ID
+                  Invoice No
                 </th>
 
                 <th className="py-4 px-6 text-sm text-center border-b">
@@ -73,7 +73,9 @@ const AdminOrder = () => {
                     ($) {u?.totalPrice}
                   </td>
                   <td className="py-4 px-6 border-b text-sm font-medium">
-                    {u?.transaction?.date_time}
+                    {new Date(u?.createdAt as Date).toLocaleDateString(
+                      "en-GB"
+                    )}
                   </td>
                   <td className="py-4 px-6 border-b text-sm font-medium">
                     {u?.transaction?.id}
