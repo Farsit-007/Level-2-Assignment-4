@@ -43,19 +43,19 @@ const Register = () => {
       }));
     }
   };
-  if (formData.password.length < 5) {
-    setError("Password must be at least 5 characters long");
-    return;
-  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (formData.password.length < 5) {
+      setError("Password must be at least 5 characters long");
+      return;
+    }
     let url;
     if (formData.image) {
       url = await uploadFile(formData.image);
     } else {
       toast.error("Failed to upload image");
     }
-
     setError(null);
     const userData = {
       ...formData,

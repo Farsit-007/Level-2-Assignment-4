@@ -20,7 +20,7 @@ const ChangePassword = () => {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (formData.newPassword.length < 6) {
+    if (formData.newPassword.length < 5) {
       setError("Password must be at least 5 characters long");
       return;
     }
