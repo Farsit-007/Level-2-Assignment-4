@@ -33,6 +33,9 @@ const AdminOrder = () => {
                   Total Paid ($)
                 </th>
                 <th className="py-4 px-6 text-sm text-center border-b">
+                  Issue Date
+                </th>
+                <th className="py-4 px-6 text-sm text-center border-b">
                   Order ID
                 </th>
 
@@ -68,6 +71,9 @@ const AdminOrder = () => {
                   </td>
                   <td className="py-4 px-6 border-b text-sm font-medium">
                     ($) {u?.totalPrice}
+                  </td>
+                  <td className="py-4 px-6 border-b text-sm font-medium">
+                    {u?.transaction?.date_time}
                   </td>
                   <td className="py-4 px-6 border-b text-sm font-medium">
                     {u?.transaction?.id}

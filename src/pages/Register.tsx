@@ -7,7 +7,8 @@ import { TError } from "../types/global.type";
 import { uploadFile } from "../utils/ImageUpload";
 
 const Register = () => {
-  const [register,{isLoading}] = useRegisterMutation();
+  const [register, { isLoading }] = useRegisterMutation();
+  const [error, setError] = useState<string | null>(null);
   const [formData, setFormData] = useState<{
     name: string;
     email: string;
@@ -48,12 +49,18 @@ const Register = () => {
     let url;
     if (formData.image) {
       url = await uploadFile(formData.image);
+    } else {
+      toast.error("Failed to upload image");
     }
+    if (formData.password.length < 6) {
+      setError("Password must be at least 5 characters long");
+      return;
+    }
+    setError(null);
     const userData = {
       ...formData,
       image: url,
     };
-    console.log(userData);
     try {
       const res = await register(userData).unwrap();
       if (res.success === true) {
@@ -61,7 +68,6 @@ const Register = () => {
         navigate(`/login`);
       }
     } catch (err) {
-      console.log(err);
       const typedError = err as TError;
       const errorMessage =
         typedError?.data?.errorSource?.[0]?.message || "Something went wrong";
@@ -191,6 +197,7 @@ const Register = () => {
                   onChange={handleInputChange}
                   required
                 />
+                <small className="text-red-500">{error}</small>
                 <label
                   className="absolute -top-2 left-2 rounded-md bg-black px-2 text-xs text-white duration-300 peer-placeholder-shown/pass:top-3 peer-placeholder-shown/pass:bg-transparent peer-placeholder-shown/pass:text-sm peer-placeholder-shown/pass:text-zinc-400 peer-focus/pass:-top-2 peer-focus/pass:bg-black peer-focus/pass:text-xs peer-focus/pass:text-white"
                   htmlFor="navigate_ui_password_33"
@@ -206,7 +213,6 @@ const Register = () => {
                   id="navigate_ui_image_33"
                   name="image"
                   onChange={handleFileChange}
-                  required
                 />
                 <label
                   className="absolute -top-2 left-2 rounded-md bg-black px-2 text-xs text-white duration-300 peer-placeholder-shown/image:top-3 peer-placeholder-shown/image:bg-transparent peer-placeholder-shown/image:text-sm peer-placeholder-shown/image:text-zinc-400 peer-focus/image:-top-2 peer-focus/image:bg-black peer-focus/image:text-xs peer-focus/image:text-white"
