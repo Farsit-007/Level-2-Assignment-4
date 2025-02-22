@@ -93,7 +93,7 @@ const Register = () => {
           <div className="space-y-5">
             <div className="relative text-sm">
               <input
-                className="peer/email block w-full rounded-md border border-black bg-inherit p-2.5 shadow-lg outline-none"
+                className="peer/name block w-full rounded-md border border-black bg-inherit p-2.5 shadow-lg outline-none"
                 type="text"
                 placeholder=""
                 id="name"
@@ -103,7 +103,7 @@ const Register = () => {
                 required
               />
               <label
-                className="absolute -top-2 left-2 rounded-md bg-black px-2 text-xs text-white duration-300 peer-placeholder-shown/email:top-3 peer-placeholder-shown/email:bg-transparent peer-placeholder-shown/email:text-sm peer-placeholder-shown/email:text-zinc-400 peer-focus/email:-top-2 peer-focus/email:bg-black peer-focus/email:text-xs peer-focus/email:text-white"
+                className="absolute -top-2 left-2 rounded-md bg-black px-2 text-xs text-white duration-300 peer-placeholder-shown/name:top-3 peer-placeholder-shown/name:bg-transparent peer-placeholder-shown/name:text-sm peer-placeholder-shown/name:text-zinc-400 peer-focus/name:-top-2 peer-focus/name:bg-black peer-focus/name:text-xs peer-focus/name:text-white"
                 htmlFor="name"
               >
                 Name
@@ -130,7 +130,7 @@ const Register = () => {
               </div>
               <div className="relative text-sm">
                 <input
-                  className="peer/email block w-full rounded-md border border-black bg-inherit p-2.5 shadow-lg outline-none"
+                  className="peer/phone block w-full rounded-md border border-black bg-inherit p-2.5 shadow-lg outline-none"
                   type="text"
                   placeholder=""
                   id="phone"
@@ -140,8 +140,8 @@ const Register = () => {
                   required
                 />
                 <label
-                  className="absolute -top-2 left-2 rounded-md bg-black px-2 text-xs text-white duration-300 peer-placeholder-shown/email:top-3 peer-placeholder-shown/email:bg-transparent peer-placeholder-shown/email:text-sm peer-placeholder-shown/email:text-zinc-400 peer-focus/email:-top-2 peer-focus/email:bg-black peer-focus/email:text-xs peer-focus/email:text-white"
-                  htmlFor="name"
+                  className="absolute -top-2 left-2 rounded-md bg-black px-2 text-xs text-white duration-300 peer-placeholder-shown/phone:top-3 peer-placeholder-shown/phone:bg-transparent peer-placeholder-shown/phone:text-sm peer-placeholder-shown/phone:text-zinc-400 peer-focus/phone:-top-2 peer-focus/phone:bg-black peer-focus/phone:text-xs peer-focus/phone:text-white"
+                  htmlFor="phone"
                 >
                   Phone
                 </label>
@@ -150,7 +150,7 @@ const Register = () => {
             <div className="grid md:grid-cols-2 gap-3">
               <div className="relative text-sm">
                 <input
-                  className="peer/email block w-full rounded-md border border-black bg-inherit p-2.5 shadow-lg outline-none"
+                  className="peer/city block w-full rounded-md border border-black bg-inherit p-2.5 shadow-lg outline-none"
                   type="text"
                   placeholder=""
                   id="city"
@@ -160,15 +160,15 @@ const Register = () => {
                   required
                 />
                 <label
-                  className="absolute -top-2 left-2 rounded-md bg-black px-2 text-xs text-white duration-300 peer-placeholder-shown/email:top-3 peer-placeholder-shown/email:bg-transparent peer-placeholder-shown/email:text-sm peer-placeholder-shown/email:text-zinc-400 peer-focus/email:-top-2 peer-focus/email:bg-black peer-focus/email:text-xs peer-focus/email:text-white"
-                  htmlFor="name"
+                  className="absolute -top-2 left-2 rounded-md bg-black px-2 text-xs text-white duration-300 peer-placeholder-shown/city:top-3 peer-placeholder-shown/city:bg-transparent peer-placeholder-shown/city:text-sm peer-placeholder-shown/city:text-zinc-400 peer-focus/city:-top-2 peer-focus/city:bg-black peer-focus/city:text-xs peer-focus/city:text-white"
+                  htmlFor="city"
                 >
                   City
                 </label>
               </div>
               <div className="relative text-sm">
                 <input
-                  className="peer/email block w-full rounded-md border border-black bg-inherit p-2.5 shadow-lg outline-none"
+                  className="peer/address block w-full rounded-md border border-black bg-inherit p-2.5 shadow-lg outline-none"
                   type="text"
                   placeholder=""
                   id="address"
@@ -178,8 +178,8 @@ const Register = () => {
                   required
                 />
                 <label
-                  className="absolute -top-2 left-2 rounded-md bg-black px-2 text-xs text-white duration-300 peer-placeholder-shown/email:top-3 peer-placeholder-shown/email:bg-transparent peer-placeholder-shown/email:text-sm peer-placeholder-shown/email:text-zinc-400 peer-focus/email:-top-2 peer-focus/email:bg-black peer-focus/email:text-xs peer-focus/email:text-white"
-                  htmlFor="name"
+                  className="absolute -top-2 left-2 rounded-md bg-black px-2 text-xs text-white duration-300 peer-placeholder-shown/address:top-3 peer-placeholder-shown/address:bg-transparent peer-placeholder-shown/address:text-sm peer-placeholder-shown/address:text-zinc-400 peer-focus/address:-top-2 peer-focus/address:bg-black peer-focus/address:text-xs peer-focus/address:text-white"
+                  htmlFor="address"
                 >
                   Address
                 </label>
@@ -213,6 +213,7 @@ const Register = () => {
                   id="navigate_ui_image_33"
                   name="image"
                   onChange={handleFileChange}
+                  required
                 />
                 <label
                   className="absolute -top-2 left-2 rounded-md bg-black px-2 text-xs text-white duration-300 peer-placeholder-shown/image:top-3 peer-placeholder-shown/image:bg-transparent peer-placeholder-shown/image:text-sm peer-placeholder-shown/image:text-zinc-400 peer-focus/image:-top-2 peer-focus/image:bg-black peer-focus/image:text-xs peer-focus/image:text-white"
