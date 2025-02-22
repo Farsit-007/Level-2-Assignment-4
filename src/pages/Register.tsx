@@ -43,7 +43,10 @@ const Register = () => {
       }));
     }
   };
-
+  if (formData.password.length < 5) {
+    setError("Password must be at least 5 characters long");
+    return;
+  }
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     let url;
@@ -52,10 +55,7 @@ const Register = () => {
     } else {
       toast.error("Failed to upload image");
     }
-    if (formData.password.length < 6) {
-      setError("Password must be at least 5 characters long");
-      return;
-    }
+
     setError(null);
     const userData = {
       ...formData,
